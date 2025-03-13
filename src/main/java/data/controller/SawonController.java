@@ -10,4 +10,9 @@ public class SawonController {
 	public String sawonList() {
 		return "sawon/sawonlist";
 	}
+	
+	@GetMapping("/form")
+	public String sawonForm() {
+		return "sawon/sawonform";
+	}
 }
