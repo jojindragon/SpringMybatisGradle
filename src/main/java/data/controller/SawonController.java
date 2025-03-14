@@ -95,14 +95,12 @@ public class SawonController {
 	@PostMapping("/update")
 	public String updateSawon(@ModelAttribute SawonDto dto,
 			@RequestParam("upload") MultipartFile upload) {
-		SawonDto old = sawonService.getSawon(dto.getNum());
-		
 		if(!upload.getOriginalFilename().equals("")) {
 			storageService.deleteFile(bucketName, "sawon", old.getPhoto());
 			String photo = storageService.uploadFile(bucketName, "sawon", upload);
 			dto.setPhoto(photo);
 		} else {
-			dto.setPhoto(old.getPhoto());
+			dto.setPhoto(null);
 		}
 		
 		sawonService.updateSawon(dto);
