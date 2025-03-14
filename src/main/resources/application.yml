@@ -6,6 +6,12 @@ spring:
     username: study
     password: bitcamp!@#123
 
+# file size up
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 30MB
+
 #mybatis setting
 mybatis:
   type-aliases-package: data.dto
